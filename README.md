@@ -30,4 +30,4 @@ Restart the Application and you should be ready to go! Please note that in futur
 Signify already offers a way to control lamps via the Philips Hue Bridge. The problem with this solution, however, is that an entertainment area has to be created in the app. However, the entertainment area can only be equipped with original Philips Hue lamps, LED strips, etc.
 
 ## UI
-<img src="./assets/docs/screen.png">
+<img src="./assets/docs/screen.png" height="500">

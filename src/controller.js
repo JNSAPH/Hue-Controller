@@ -4,13 +4,10 @@ const settings = require('../settings.json')
 var IP;
 var LightList;
 
-
 // Get IP of Hue Bridge
 request('https://discovery.meethue.com/', function (error, response, body) {
     IP = JSON.parse(body)[0].internalipaddress
     document.getElementById('uiIP').innerHTML = IP
-
-    console.log(IP)
 
     // List Lights
     request(`http://${IP}/api/${settings.username}/lights`, function (error, response, body) {
