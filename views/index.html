@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom Scripts & Css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../src/index.css">
+
+    <script defer src="../src/controller.js?1500"></script>
+
+    <title>Hue-Controller</title>
+</head>
+<body>
+    <nav class="navbar navtop">
+        <p class="navbar-brand mb-0" style="color: #FF65A5;">Bridge IP: <a id="uiIP"></a></p>
+    </nav>
+    
+    <div class="container" id="LightList">
+    </div>
+
+
+    <footer>
+        <nav class="navbar fixed-bottom navbot">
+            <div class="container mx-auto d-block">
+                <div class="row">
+                    <div class="col">
+                        <a><img src="../assets/Icons/home.svg"></a>
+                    </div>
+                    <div class="col">
+                        <a><img src="../assets/Icons/airplay.svg"></a>
+                    </div>
+                    <div class="col">
+                        <a onclick="window.open('room.html', '_blank')"><img src="../assets/Icons/settings.svg"></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </footer>
+
+</body>
+</html>
