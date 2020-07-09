@@ -16,13 +16,13 @@ request('https://discovery.meethue.com/', function (error, response, body) {
         // Create a Card for every Lamp inside the System
         /*
             - Research if there is a better way to do this
-            - Gray-out Cards if Lamp is Offline, Unreachable or Unsupported
+            - Gray-out Cards if Lamp is Offline, Unreachable or Unsupported - DONE
         */
         Object.keys(LightList).forEach(element => {
             document.getElementById('LightList').innerHTML +=
             `
-            <div class="card">
-                <div class="card-body" data-toggle="modal" data-target="#${element}Modal">
+            <div class="card card${element}">
+                <div class="card-body ${LightList[element].state.reachable == false ? "offline" : ""}">
                     <p style="font-size: 20px; font-weight: bold; text-align: center" class="md-0">${LightList[element].name}</p>
                     <p style="text-align: center" clasS="md-0">Lamp ID: ${element} | ${LightList[element].state.reachable == true ? "Online" : "Offline"}</p>
                     <div class="btn-group">
