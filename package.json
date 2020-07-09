@@ -4,12 +4,16 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/Icons/logo.png --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/Icons/logo.ico --prune=true --out=release-builds --version-string.CompanyName=APH --version-string.FileDescription=CE --version-string.ProductName=\"SpaceX App\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/Icons/logo.png --prune=true --out=release-builds"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^9.1.0"
+    "electron": "^9.1.0",
+    "electron-packager": "^14.2.1"
   },
   "dependencies": {
     "request": "^2.88.2"
