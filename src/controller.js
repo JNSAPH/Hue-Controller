@@ -61,7 +61,7 @@ function LightStateHue(lampid, hex) {
         body: `{"on": true, "xy": ${hexToRgb(hex)}}`
     })
 
-    console.log(`Changed Lamp ${lampid} to ${rgb} XY Value`)
+    console.log(`Changed Lamp ${lampid} to ${hex} Hex`)
 }
 
 function LightStateBri(lampid, bri) {

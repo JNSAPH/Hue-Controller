@@ -60,6 +60,17 @@ p{
     color: white
 }
 
+::-webkit-scrollbar {     
+    background-color: #111423;
+    width: .3em
+}
+
+::-webkit-scrollbar-thumb:window-inactive,
+::-webkit-scrollbar-thumb {
+    background:  #E2E1E3;
+    border-radius: 360px;
+}
+
 /*
 // Clickable Buttons
 */
