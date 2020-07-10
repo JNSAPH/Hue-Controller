@@ -21,7 +21,7 @@ request('https://discovery.meethue.com/', function (error, response, body) {
         Object.keys(LightList).forEach(element => {
             document.getElementById('LightList').innerHTML +=
                 `
-            <div class="card card${element}">
+            <div class="card lcard">
                 <div class="card-body ${LightList[element].state.reachable == false ? "offline" : ""}">
                     <p style="font-size: 20px; font-weight: bold; text-align: center" class="md-0">${LightList[element].name}</p>
                     <p style="text-align: center" clasS="md-0">Lamp ID: ${element} | ${LightList[element].state.reachable == true ? "Online" : "Offline"}</p>
