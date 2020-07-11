@@ -30,7 +30,7 @@ request('https://discovery.meethue.com/', function (error, response, body) {
                         <button type="button" class="btn btn-danger" onclick="LightSwitch(${element}, false)">Off</button>
                     </div>
                     <div class="form-group">
-                        <input class="form-control-range" type="range" max="254" value="${LightList[element].state.bri}" onchange="LightStateBri(${element}, this.value)">
+                        <input class="form-control-range" type="range" max="254" value="${LightList[element].state.on == true ? LightList[element].state.bri : 0}" onchange="LightStateBri(${element}, this.value)" id="Lamp${element}">
                         <br>
                         <input type="color" value="${xyBriToRgb(LightList[element].state.xy[0], LightList[element].state.xy[1], LightList[element].state.bri)}" id="head" name="head" onchange="LightStateHue(${element}, this.value)">
                     </div>
@@ -52,6 +52,15 @@ function LightSwitch(lampid, state) {
         url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,
         body: `{"on":${state}}`
     })
+
+    // Change Brightness Switch to either 0 or Lamps Brightness 
+    if (state == true) {
+        document.getElementById('Lamp' + lampid).value = LightList[lampid].state.bri
+    } else {
+        document.getElementById('Lamp' + lampid).value = 0
+        Refresh();
+    }
+
     console.log(`Switching Lamp ${lampid} ${state}`)
 }
 
@@ -60,6 +69,9 @@ function LightStateHue(lampid, hex) {
         url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,
         body: `{"on": true, "xy": ${hexToRgb(hex)}}`
     })
+
+    // Change Brightness Switch to either 0 or Lamps Brightness 
+    document.getElementById('Lamp' + lampid).value = LightList[lampid].state.bri
 
     console.log(`Changed Lamp ${lampid} to ${hex} Hex`)
 }
@@ -71,6 +83,12 @@ function LightStateBri(lampid, bri) {
     })
 
     console.log(`Changed Lamp ${lampid} to ${bri} Brightness`)
+}
+
+function Refresh() {
+    request(`http://${IP}/api/${settings.username}/lights`, function (error, response, body) {
+        LightList = JSON.parse(body)
+    })
 }
 
 // Convert Colors
