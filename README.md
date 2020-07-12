@@ -21,6 +21,7 @@ Installation is easy! Just follow these Steps:
 Restart the Application and you should be ready to go! Please note that in future Releases the Application will create its own Username.
 
 ## Todo
+- [ ] Transitions from request to Axios
 - [X] Add Color Support
 - [ ] Add Room Support
 - [ ] Clean up my messy messy code (seriously what the hell)
