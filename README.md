@@ -21,12 +21,12 @@ Installation is easy! Just follow these Steps:
 Restart the Application and you should be ready to go! Please note that in future Releases the Application will create its own Username.
 
 ## Todo
-- [ ] Transitions from request to Axios
-- [X] Add Color Support
 - [ ] Add Room Support
 - [ ] Clean up my messy messy code (seriously what the hell)
 - [ ] Added Color-Shift acording to Music / Screen Content
 - [ ] Redo UI
+- [X] Transitions from request to Axios
+- [X] Add Color Support
 
 ## Why should i use this?
 Signify already offers a way to control lamps via the Philips Hue Bridge. The problem with this solution, however, is that an entertainment area has to be created in the app. However, the entertainment area can only be equipped with original Philips Hue lamps, LED strips, etc.

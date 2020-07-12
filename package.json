@@ -6,17 +6,16 @@
   "scripts": {
     "start": "electron .",
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/Icons/logo.png --prune=true --out=release-builds",
-    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/Icons/logo.ico --prune=true --out=release-builds --version-string.CompanyName=APH --version-string.FileDescription=CE --version-string.ProductName=\"SpaceX App\"",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/Icons/logo.ico --prune=true --out=release-builds --version-string.CompanyName=APH --version-string.FileDescription=CE --version-string.ProductName=\"Hue-Controller\"",
     "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/Icons/logo.png --prune=true --out=release-builds"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "electron": "^9.1.0",
-    "electron-packager": "^14.2.1"
+    "electron-packager": "^15.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "request": "^2.88.2"
+    "axios": "^0.19.2"
   }
 }
