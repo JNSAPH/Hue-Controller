@@ -13,7 +13,7 @@ axios.get('https://discovery.meethue.com/') //Get IP of Hue Bridge (Will later b
 
         axios.get(`http://${IP}/api/${settings.username}/lights`)
             .then((response) => {
-                var LightList = response.data
+                LightList = response.data
 
                 Object.keys(LightList).forEach(element => {
                     document.getElementById('LightList').innerHTML +=
@@ -39,7 +39,6 @@ axios.get('https://discovery.meethue.com/') //Get IP of Hue Bridge (Will later b
     })
 
 
-
 // Lamp switches
 function LightSwitch(lampid, state) {
     axios({
@@ -56,6 +55,7 @@ function LightSwitch(lampid, state) {
         Refresh();
     }
 
+    console.log(LightList)
     console.log(`Switching Lamp ${lampid} ${state}`)
 }
 
@@ -64,7 +64,7 @@ function LightStateHue(lampid, hex) {
         method: 'put',
         url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,
         data: { "on": true, "xy": JSON.parse(colorConv.hexToRgb(hex)) }
-      })
+    })
 
     document.getElementById('Lamp' + lampid).value = LightList[lampid].state.bri
     console.log(`Changed Lamp ${lampid} to ${hex} Hex`)
@@ -75,14 +75,14 @@ function LightStateBri(lampid, bri) {
         method: 'put',
         url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,
         data: { "on": true, "bri": JSON.parse(bri) }
-      }).then(function (response){console.log(response.data)})
+    }).then(function (response) { console.log(response.data) })
 
     console.log(`Changed Lamp ${lampid} to ${bri} Brightness`)
 }
 
 function Refresh() {
     axios(`http://${IP}/api/${settings.username}/lights`)
-    .then(function (response) {
-        LightList = response.data
-    })
+        .then(function (response) {
+            LightList = response.data
+        })
 }

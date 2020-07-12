@@ -103,3 +103,22 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::-webkit-color-swatch {
 	border: none;
 }
+
+/*
+// Modal
+*/
+
+.modal-content{
+    border-radius: 0px;
+    border: none;
+    background-color: white;
+}
+
+.modal-title{
+    text-align: center;
+    color: black;
+}
+
+.modal-body{
+    color: black;
+}
