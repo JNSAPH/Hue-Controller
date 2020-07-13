@@ -3,7 +3,7 @@ exports.hexToRgb = (hex) => {
     if (hex.length < 6 || hex.length > 7) throw new Error('hex-string needs to be 6 or 7 chars long');
     if (hex.length == 7 && !hex[0] == '#') throw new Error('hex-string is 7 chars long but does not start with #');
     
-    if (hex.length == 7) hex.substring(1);
+    if (hex.length == 7) hex = hex.substring(1);
     
     return rgbToXY(parseInt(hex.substring(0, 2), 16), 
                    parseInt(hex.substring(2, 4), 16),
