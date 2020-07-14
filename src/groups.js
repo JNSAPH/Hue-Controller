@@ -70,8 +70,8 @@ function LampList(roomid) {
         // Add Lightcard for every Lamp
         List +=
             `
-            <div class="card">
-                <div class="card-body lcard ${lightlist[element].state.reachable == false ? "offline" : ""}">
+            <div class="card lcard">
+                <div class="card-body ${lightlist[element].state.reachable == false ? "offline" : ""}">
                     <p style="font-size: 20px; font-weight: bold; text-align: center" class="md-0">${lightlist[element].name}</p>
                     <p style="text-align: center" clasS="md-0">Lamp ID: ${element} | ${lightlist[element].state.reachable == true ? "Online" : "Offline"}</p>
                 <div class="btn-group">
