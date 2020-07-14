@@ -1,10 +1,13 @@
-//Import Modules and create Variables
+//Import Modules
 const axios = require('axios');
+
+//Import Custom Modules
 const settings = require('../settings.json')
 const colorConv = require('../modules/colorConv.js')
-var lightlist;
+const lampController = require('../modules/lampController.js')
+
+// Create Variables
 var groups;
-var IP;
 
 axios.get('https://discovery.meethue.com/')
     .then((response) => {
@@ -28,8 +31,8 @@ axios.get('https://discovery.meethue.com/')
                                 <p style="font-size: 20px; font-weight: bold; text-align: center" class="md-0">${groups[element].name}</p>
                                 <p style="text-align: center" clasS="md-0">ID: ${element} | ${groups[element].type == "Entertainment" ? "Entertainment Area" : "Room"}</p>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-success" onclick="MasterSwitch(${element}, true)">On</button>
-                                    <button type="button" class="btn btn-danger" onclick="MasterSwitch(${element}, false)">Off</button>
+                                    <button type="button" class="btn btn-success" onclick="lampController.MasterSwitch(${element}, true)">On</button>
+                                    <button type="button" class="btn btn-danger" onclick="lampController.MasterSwitch(${element}, false)">Off</button>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal${element}">More</button>
                                 </div>
                             </div>
@@ -55,19 +58,15 @@ axios.get('https://discovery.meethue.com/')
                         </div>
                       </div>
                     `
-
                 })
             })
     })
 
-Refresh();
-
-// Lightcards
+// Generate Lightcards
 function LampList(roomid) {
-    let LightList = groups[roomid].lights
     let List = ""; // Will be undefined unless = "" => Find fix?
 
-    LightList.forEach(element => {
+    groups[roomid].lights.forEach(element => {
         // Add Lightcard for every Lamp
         List +=
             `
@@ -76,83 +75,17 @@ function LampList(roomid) {
                     <p style="font-size: 20px; font-weight: bold; text-align: center" class="md-0">${lightlist[element].name}</p>
                     <p style="text-align: center" clasS="md-0">Lamp ID: ${element} | ${lightlist[element].state.reachable == true ? "Online" : "Offline"}</p>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-success" onclick="LightSwitch(${element}, true)">On</button>
-                    <button type="button" class="btn btn-danger" onclick="LightSwitch(${element}, false)">Off</button>
+                    <button type="button" class="btn btn-success" onclick="lampController.LightSwitch(${element}, true)">On</button>
+                    <button type="button" class="btn btn-danger" onclick="lampController.LightSwitch(${element}, false)">Off</button>
                 </div>
                 <div class="form-group">
-                    <input class="form-control-range" type="range" max="254" value="${lightlist[element].state.on == true ? lightlist[element].state.bri : 0}" onchange="LightStateBri(${element}, this.value)" id="Lamp${element}">
+                    <input class="form-control-range" type="range" max="254" value="${lightlist[element].state.on == true ? lightlist[element].state.bri : 0}" onchange="lampController.LightStateBri(${element}, this.value)" id="Lamp${element}">
                     <br>
-                    <input type="color" value="${colorConv.xyBriToRgb(lightlist[element].state.xy[0], lightlist[element].state.xy[1], lightlist[element].state.bri)}" id="head" name="head" onchange="LightStateHue(${element}, this.value)">
+                    <input type="color" value="${colorConv.xyBriToRgb(lightlist[element].state.xy[0], lightlist[element].state.xy[1], lightlist[element].state.bri)}" id="head" name="head" onchange="lampController.LightStateHue(${element}, this.value)">
                 </div>
                 </div>
             </div>
         `
     })
     return List;
-}
-
-/*
-    Move these into a Module
-    I just want to get this working and go to sleep
-    I have school tomorrow ,_,
-*/
-
-function MasterSwitch(roomid, state) {
-    let LightList = groups[roomid].lights
-
-    LightList.forEach(element => {
-        axios({
-            method: 'put',
-            url: `http://${IP}/api/${settings.username}/lights/${element}/state`,
-            data: { "on": state }
-        });
-
-        console.log(`Switching Lamps ${element} ${state}`)
-    });
-}
-
-function LightSwitch(lampid, state) {
-    axios({
-        method: 'put',
-        url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,
-        data: { "on": state }
-    });
-
-    // Change Brightness Switch to either 0 or Lamps Brightness 
-    if (state == true) {
-        document.getElementById('Lamp' + lampid).value = lightlist[lampid].state.bri
-    } else {
-        document.getElementById('Lamp' + lampid).value = 0
-        Refresh();
-    }
-
-    console.log(`Switching Lamp ${lampid} ${state}`)
-}
-
-function LightStateHue(lampid, hex) {
-    axios({
-        method: 'put',
-        url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,
-        data: { "on": true, "xy": JSON.parse(colorConv.hexToRgb(hex)) }
-    })
-
-    document.getElementById('Lamp' + lampid).value = lightlist[lampid].state.bri
-    console.log(`Changed Lamp ${lampid} to ${hex} Hex`)
-}
-
-function LightStateBri(lampid, bri) {
-    axios({
-        method: 'put',
-        url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,
-        data: { "on": true, "bri": JSON.parse(bri) }
-    }).then(function (response) { console.log(response.data) })
-
-    console.log(`Changed Lamp ${lampid} to ${bri} Brightness`)
-}
-
-function Refresh() {
-    axios(`http://${IP}/api/${settings.username}/lights`)
-        .then(function (response) {
-            lightlist = response.data
-        })
 }

@@ -21,8 +21,8 @@ Installation is easy! Just follow these Steps:
 Restart the Application and you should be ready to go! Please note that in future Releases the Application will create its own Username.
 
 ## Todo
-- [ ] Add Room Support
 - [ ] Added Color-Shift acording to Music / Screen Content
+- [X] Add Room Support
 - [X] Transitions from request to Axios
 - [X] Add Color Support
 
