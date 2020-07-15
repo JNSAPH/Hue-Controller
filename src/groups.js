@@ -8,7 +8,9 @@ const colorConv = require('../modules/colorConv.js')
 const lampController = require('../modules/lampController.js')
 
 // Create Variables
+var IP;
 var groups;
+var lightlist;
 
 axios.get('https://discovery.meethue.com/')
     .then((response) => {

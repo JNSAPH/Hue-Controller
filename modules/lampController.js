@@ -1,6 +1,6 @@
 // Decleare Variables
-let IP;
-let LightList
+var IP;
+var LightList;
 
 axios.get('https://discovery.meethue.com/')
 .then((response) => {
@@ -26,14 +26,13 @@ exports.LightSwitch = (lampid, state) => {
     });
 
     // Change Brightness Switch to either 0 or Lamps Brightness 
+    this.Refresh();
     if (state == true) {
         document.getElementById('Lamp' + lampid).value = LightList[lampid].state.bri
     } else {
         document.getElementById('Lamp' + lampid).value = 0
-        this.Refresh();
     }
 
-    console.log(LightList)
     console.log(`Switching Lamp ${lampid} ${state}`)
 }
 
@@ -68,7 +67,7 @@ exports.LightStateBri = (lampid, bri) => {
 
 // Master Switch for all Lamps inside a Group
 exports.MasterSwitch = (roomid, state) => {
-    let LightList = groups[roomid].lights
+    LightList = groups[roomid].lights
 
     LightList.forEach(element => {
         axios({

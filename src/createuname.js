@@ -7,8 +7,8 @@ var fs = require('fs');
 var IP;
 
 axios.get('https://discovery.meethue.com/')
-    .then((response) => {
-        IP = response.data[0].internalipaddress
+    .then((responseip) => {
+        IP = responseip.data[0].internalipaddress
         document.getElementById('uiIP').innerHTML = IP
 
         if (IP !== null) {
@@ -51,8 +51,8 @@ axios.get('https://discovery.meethue.com/')
                 detail: "Sorry, i couldn't find a Bridge connected to the same Network you're currently in. Please check and try again.\nIf you can't fix this Problem please openup a Issue on GitHub",
             };
 
-            dialog.showMessageBox(null, options, (response, checkboxChecked) => {
-                console.log(response);
+            dialog.showMessageBox(null, options, (resp, checkboxChecked) => {
+                console.log(resp);
                 console.log(checkboxChecked);
             });
         }
