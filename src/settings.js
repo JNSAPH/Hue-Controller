@@ -1,10 +1,16 @@
 //Import Modules and create Variables
 const axios = require('axios');
-const settings = require('../settings.json')
+const { app } = require('electron').remote
+
+//Import Custom Modules
+const settings = require(app.getPath('userData') + '/settings.json')
+
+// Create Variables
 var IP;
 
 // Get IP of Hue Bridge
 
+document.getElementById('filepath').innerHTML = app.getPath('userData') + '/settings.json'
 
 
 axios.get('https://discovery.meethue.com/')

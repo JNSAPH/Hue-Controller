@@ -1,12 +1,15 @@
 //Import Modules
+const { app } = require('electron').remote
 const axios = require('axios');
 
 //Import Custom Modules
 const colorConv = require('../modules/colorConv.js')
 const lampController = require('../modules/lampController.js')
-const settings = require('../settings.json')
+const settings = require(app.getPath('userData') + '/settings.json')
 
-// 
+// Create Variables
+var IP;
+
 axios.get('https://discovery.meethue.com/')
     .then((response) => {
         IP = response.data[0].internalipaddress

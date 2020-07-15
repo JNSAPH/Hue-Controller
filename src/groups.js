@@ -1,8 +1,9 @@
 //Import Modules
+const { app } = require('electron').remote
 const axios = require('axios');
 
 //Import Custom Modules
-const settings = require('../settings.json')
+const settings = require(app.getPath('userData') + '/settings.json')
 const colorConv = require('../modules/colorConv.js')
 const lampController = require('../modules/lampController.js')
 

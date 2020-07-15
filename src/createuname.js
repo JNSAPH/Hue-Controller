@@ -1,7 +1,9 @@
+//Import Modules
 const axios = require('axios');
-const { app } = require('electron').remote
+const { app,dialog } = require('electron').remote
 var fs = require('fs');
-const { dialog } = require('electron').remote
+
+//Create Variables
 var IP;
 
 axios.get('https://discovery.meethue.com/')
