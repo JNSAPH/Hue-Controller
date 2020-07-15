@@ -3,7 +3,8 @@ const { app, BrowserWindow } = require('electron')
 
 // other Modules
 const fs = require('fs')
-const settings = require('./settings.json')
+
+console.log()
 
 function successWindow () {
   let win = new BrowserWindow({
@@ -31,4 +32,9 @@ function errorWindow () {
   win.loadFile('views/createuname.html')
 }
 
-app.whenReady().then(successWindow)
+if (fs.existsSync(app.getPath('userData') + '/settings.json')) {
+  app.whenReady().then(successWindow)
+} else {
+  app.whenReady().then(errorWindow)
+}
+
