@@ -12,8 +12,8 @@ exports.IP = IP
 
 exports.Refresh = () => {
     axios(`http://${IP}/api/${settings.username}/lights`)
-        .then(function (response) {
-            LightList = response.data
+        .then(function (reponseIP) {
+            LightList = reponseIP.data
         })
 }
 

@@ -13,8 +13,8 @@ var groups;
 var lightlist;
 
 axios.get('https://discovery.meethue.com/')
-    .then((response) => {
-        IP = response.data[0].internalipaddress
+    .then((reponseIP) => {
+        IP = reponseIP.data[0].internalipaddress
         document.getElementById('uiIP').innerHTML = IP
         axios(`http://${IP}/api/${settings.username}/lights`)
         .then(function (response) {

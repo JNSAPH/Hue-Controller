@@ -14,8 +14,8 @@ document.getElementById('filepath').innerHTML = app.getPath('userData') + '/sett
 
 
 axios.get('https://discovery.meethue.com/')
-    .then((response) => {
-        IP = response.data[0].internalipaddress
+    .then((reponseIP) => {
+        IP = reponseIP.data[0].internalipaddress
         document.getElementById('uiIP').innerHTML = IP
 
         axios.get(`http://${IP}/api/${settings.username}/config`)
