@@ -1,10 +1,10 @@
 // Electron Modules
 const { app, BrowserWindow } = require('electron')
+const touchbar = require('./modules/touchbar')
 
 // other Modules
 const fs = require('fs')
 
-console.log()
 
 function successWindow () {
   let win = new BrowserWindow({
@@ -12,11 +12,13 @@ function successWindow () {
     height: 736,
     resizable: false,
     webPreferences: {
+      allowRunningInsecureContent: true,
       nodeIntegration: true
     }
   })
-
+  
   win.loadFile('views/index.html')
+  win.setTouchBar(touchbar)
 }
 
 function errorWindow () {
@@ -31,6 +33,8 @@ function errorWindow () {
 
   win.loadFile('views/createuname.html')
 }
+
+app.allowRendererProcessReuse = true; 
 
 if (fs.existsSync(app.getPath('userData') + '/settings.json')) {
   app.whenReady().then(successWindow)

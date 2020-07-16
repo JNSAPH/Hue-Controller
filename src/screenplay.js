@@ -9,10 +9,17 @@ const lampController = require('../modules/lampController.js')
 
 // Create Variables
 var IP;
+var lightlist;
+var groups;
 
 /*
     getPrimaryDisplay():
 */
+
+setInterval(() => {
+    document.getElementById('Pixel').innerHTML = JSON.stringify(screen.getCursorScreenPoint())
+}, 1000);
+
 
 document.getElementById('primaryDisplayID').innerHTML = screen.getPrimaryDisplay().id
 document.getElementById('primaryDisplayStats').innerHTML = `${screen.getPrimaryDisplay().size.width} x ${screen.getPrimaryDisplay().size.height}`
