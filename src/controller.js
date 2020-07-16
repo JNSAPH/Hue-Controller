@@ -32,7 +32,7 @@ axios.get('https://discovery.meethue.com/')
                                 <button type="button" class="btn btn-danger" onclick="lampController.LightSwitch(${element}, false)">Off</button>
                             </div>
                             <div class="form-group">
-                                <input class="form-control-range" type="range" max="254" value="${LightList[element].state.on == true ? LightList[element].state.bri : 0}" onchange="lampController.LightStateBri(${element}, this.value)" id="Lamp${element}">
+                                <input id="Lamp${element}" class="form-control-range" type="range" max="254" value="${LightList[element].state.on == true ? LightList[element].state.bri : 0}" onchange="lampController.LightStateBri(${element}, this.value)">
                                 <input type="color" value="${colorConv.xyBriToRgb(LightList[element].state.xy[0], LightList[element].state.xy[1], LightList[element].state.bri)}" id="head" name="head" onchange="lampController.LightStateHue(${element}, this.value)">
                             </div>
                         </div>

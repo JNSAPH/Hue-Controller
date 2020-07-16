@@ -26,9 +26,12 @@ exports.LightSwitch = (lampid, state) => {
     });
 
     // Change Brightness Switch to either 0 or Lamps Brightness 
-    this.Refresh();
+    this.Refresh()
+    let brightness = LightList[lampid].state.bri
+
     if (state == true) {
-        document.getElementById('Lamp' + lampid).value = LightList[lampid].state.bri
+        document.getElementById('Lamp' + lampid).value = brightness
+        //document.getElementById('Lamp' + lampid).value = LightList[lampid].state.bri
     } else {
         document.getElementById('Lamp' + lampid).value = 0
     }

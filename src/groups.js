@@ -36,7 +36,7 @@ axios.get('https://discovery.meethue.com/')
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-success" onclick="lampController.MasterSwitch(${element}, true)">On</button>
                                     <button type="button" class="btn btn-danger" onclick="lampController.MasterSwitch(${element}, false)">Off</button>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal${element}">More</button>
+                                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal${element}">More</button>
                                 </div>
                             </div>
                         </div>

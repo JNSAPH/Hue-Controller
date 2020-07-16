@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom Scripts & Css -->
+    <link rel="stylesheet" href="../src/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../src/index.css">
+
+    <script defer src="../src/screenplay.js"></script>
+
+    <title>ScreenPlayᴮᵉᵗᵃ - Hue-Controller</title>
+</head>
+<body>
+    <nav class="navbar navtop" aria-label="Displays the Bridge IP">
+        <p class="navbar-brand mb-0">Bridge IP: <a id="uiIP"></a></p>
+    </nav>
+
+    <div class="container">
+        <div style="text-align: center" class="container">
+            <img src="../assets/Icons/monitor.svg" alt="Display" style="padding-top: 20px; padding-bottom: 20px; width: 200px">
+            <p style="font-size: 20px; font-weight: bold; margin: 0" id="primaryDisplayID"></p>
+            <p style="font-size: 16px;" id="primaryDisplayStats"></p>
+        </div>
+    </div>
+
+    <hr class="container">
+
+    <div id="GroupList" style="margin-bottom: 90px"></div>
+
+    <footer>
+        <nav class="navbar fixed-bottom navbot" aria-label="Buttons for Navigation">
+            <div class="container mx-auto d-block">
+                <div class="row">
+                    <div class="col">
+                        <a onclick="window.close()"><img alt="Close" src="../assets/Icons/close.svg"></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>
+
