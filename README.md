@@ -9,16 +9,19 @@
   Electron App to Controll Zigbee Lights using your Philips Hue Bridge
 </h3>
 
+<h3 align="center">
+      <img src="https://sonarcloud.io/api/project_badges/quality_gate?project=JNSAPH_Hue-Controller"><br><br>
+      <img src="https://sonarcloud.io/api/project_badges/measure?project=JNSAPH_Hue-Controller&metric=sqale_rating">
+      <img src="https://sonarcloud.io/api/project_badges/measure?project=JNSAPH_Hue-Controller&metric=bugs">
+      <img src="https://sonarcloud.io/api/project_badges/measure?project=JNSAPH_Hue-Controller&metric=code_smells">
+</h3>
+
 ## Installation
 Installation is easy! Just follow these Steps:
 - Download the Repository and install the required Packages using `npm install`
-- Open the Application using `npm start` and copy the IP Adress
-- Open a Browser and go to `https://YOUR_BRIDGE_IP/debug/clip.html`
-- Type in **URL** `/api` and in **Message Body** `{"devicetype":"huecontroller#developer"}`
-- Click on the **Post** Button and copy the String under `username`.
-- Paste your Username into the correct key inside `settings.json`
+- Start the Application using `npm start`
 
-Restart the Application and you should be ready to go! Please note that in future Releases the Application will create its own Username.
+.. and you're done! Hue controller will do the rest. Just follow the steps inside the program
 
 ## Todo
 - [ ] Added Color-Shift acording to Music / Screen Content

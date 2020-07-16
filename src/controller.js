@@ -9,10 +9,11 @@ const settings = require(app.getPath('userData') + '/settings.json')
 
 // Create Variables
 var IP;
+var LightList;
 
 axios.get('https://discovery.meethue.com/')
-    .then((response) => {
-        IP = response.data[0].internalipaddress
+    .then((reponseIP) => {
+        IP = reponseIP.data[0].internalipaddress
         document.getElementById('uiIP').innerHTML = IP
 
         axios.get(`http://${IP}/api/${settings.username}/lights`)
