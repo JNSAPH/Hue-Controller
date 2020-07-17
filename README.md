@@ -10,7 +10,7 @@
 </h3>
 
 <h3 align="center">
-      <img src="https://sonarcloud.io/api/project_badges/quality_gate?project=JNSAPH_Hue-Controller"><br><br>
+      <a href="https://sonarcloud.io/dashboard?id=JNSAPH_Hue-Controller"><img src="https://sonarcloud.io/api/project_badges/quality_gate?project=JNSAPH_Hue-Controller"></a><br><br>
       <img src="https://sonarcloud.io/api/project_badges/measure?project=JNSAPH_Hue-Controller&metric=sqale_rating">
       <img src="https://sonarcloud.io/api/project_badges/measure?project=JNSAPH_Hue-Controller&metric=bugs">
       <img src="https://sonarcloud.io/api/project_badges/measure?project=JNSAPH_Hue-Controller&metric=code_smells">
