@@ -1,10 +1,10 @@
 // Electron Modules
 const { app, BrowserWindow } = require('electron')
+var robot = require("robotjs");
 
 // other Modules
 const fs = require('fs')
 
-console.log()
 
 function successWindow () {
   let win = new BrowserWindow({
