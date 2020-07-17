@@ -2,10 +2,10 @@
 const { app, BrowserWindow, TouchBar } = require('electron')
 const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
 
-const package = require('../package-lock.json')
+const prPackage = require('../package.json')
 
 const label = new TouchBarLabel({
-    label: "V" + package.version,
+    label: "V" + prPackage.version,
     textColor: "#FF5454"
 })
 
