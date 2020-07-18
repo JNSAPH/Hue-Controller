@@ -5,6 +5,12 @@ var robot = require("robotjs");
 // other Modules
 const fs = require('fs')
 
+/*
+  This is the only way i know of to get RobotJS to work in Render Process.
+  allowRenderProcessReuse is deprecated and might not work in future release of Electron.
+  If you know how to do this correctly please fork.
+*/
+app.allowRendererProcessReuse = false
 
 function successWindow () {
   let win = new BrowserWindow({

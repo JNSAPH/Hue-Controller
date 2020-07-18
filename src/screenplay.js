@@ -1,6 +1,7 @@
 //Import Modules
 const { screen, app } = require('electron').remote
 const axios = require('axios');
+var robot = require("robotjs");
 
 //Import Custom Modules
 const settings = require(app.getPath('userData') + '/settings.json')
@@ -13,6 +14,13 @@ var IP;
 /*
     getPrimaryDisplay():
 */
+
+setInterval(() => {
+    var hex = robot.getPixelColor(screen.getCursorScreenPoint().x, screen.getCursorScreenPoint().y);
+    lampController.LightStateHue(9, "#"+hex)
+    console.log(hex)
+}, 500);
+
 
 document.getElementById('primaryDisplayID').innerHTML = screen.getPrimaryDisplay().id
 document.getElementById('primaryDisplayStats').innerHTML = `${screen.getPrimaryDisplay().size.width} x ${screen.getPrimaryDisplay().size.height}`
