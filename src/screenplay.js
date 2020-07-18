@@ -5,11 +5,12 @@ var robot = require("robotjs");
 
 //Import Custom Modules
 const settings = require(app.getPath('userData') + '/settings.json')
-const colorConv = require('../modules/colorConv.js')
 const lampController = require('../modules/lampController.js')
 
 // Create Variables
 var IP;
+var lightlist;
+var groups;
 var ColorSet;
 
 document.getElementById('primaryDisplayID').innerHTML = screen.getPrimaryDisplay().id
