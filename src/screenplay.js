@@ -10,17 +10,19 @@ const lampController = require('../modules/lampController.js')
 
 // Create Variables
 var IP;
+var ColorSet;
 
 /*
     getPrimaryDisplay():
 */
 
+/*
 setInterval(() => {
     var hex = robot.getPixelColor(screen.getCursorScreenPoint().x, screen.getCursorScreenPoint().y);
-    lampController.LightStateHue(9, "#"+hex)
+    lampController.LightStateHue(5, "#"+hex)
     console.log(hex)
 }, 500);
-
+*/
 
 document.getElementById('primaryDisplayID').innerHTML = screen.getPrimaryDisplay().id
 document.getElementById('primaryDisplayStats').innerHTML = `${screen.getPrimaryDisplay().size.width} x ${screen.getPrimaryDisplay().size.height}`
@@ -47,7 +49,7 @@ axios.get('https://discovery.meethue.com/')
                                 <p style="font-size: 20px; font-weight: bold; text-align: center" class="md-0">${groups[element].name}</p>
                                 <p style="text-align: center" clasS="md-0">ID: ${element} | ${groups[element].type == "Entertainment" ? "Entertainment Area" : "Room"}</p>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-dark" onclick="alert('${groups[element].name} - ${element}')">Select</button>
+                                    <button type="button" class="btn btn-dark" onclick="roomSelector(${element})">Select</button>
                                 </div>
                             </div>
                         </div>
@@ -56,3 +58,23 @@ axios.get('https://discovery.meethue.com/')
                 })
             })
     })
+
+function roomSelector(groupid){
+    // Clear Intervall, just incase User decides to Switch Rooms.
+    clearInterval(ColorSet)
+
+    // Get Variables to Calculate where the Pixel Data should come from.
+    let lights = groups[groupid].lights
+    let x = screen.getPrimaryDisplay().size.width / 2
+    let y = screen.getPrimaryDisplay().size.height / 2
+    
+    // Set Hue for each Light.
+    ColorSet = setInterval(() => {
+        lights.forEach(element => {
+            var hex = robot.getPixelColor(x, y);
+            console.log(groupid + " | " + element + " | " + hex)
+            console.log(lights)
+            //lampController.LightStateHue(element, "#"+hex)
+        })
+    }, 1500);
+}

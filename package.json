@@ -8,7 +8,7 @@
     "pack:osx": "electron-packager . $npm_package_productName --out=dist/osx --platform=darwin --arch=x64 --icon=assets/build/osx/icon.icns && npm run codesign",
     "pack:win64": "electron-packager . $npm_package_productName --out=dist/win --platform=win32 --arch=x64 app-version=1.0 --icon=assets/build/win/icon.ico",
     "pack:linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/build/linux/icon.png --prune=true --out=dist/linux",
-    "rebuild":"npm rebuild --runtime=electron --target=9.1.0 --disturl=https://atom.io/download/atom-shell --abi=72",
+    "rebuild": "npm rebuild --runtime=electron --target=9.1.0 --disturl=https://atom.io/download/atom-shell --abi=80",
     "build": "npm run pack:osx && npm run pack:linux && npm run pack:win64"
   },
   "author": "JNSAPH",
