@@ -24,7 +24,7 @@ Installation is easy! Just follow these Steps:
 .. and you're done! Hue controller will do the rest. Just follow the steps inside the program
 
 ## Todo
-- [ ] Added Color-Shift acording to Music / Screen Content
+- [X] Added Color-Shift acording to Music / Screen Content
 - [X] Add Room Support
 - [X] Transitions from request to Axios
 - [X] Add Color Support

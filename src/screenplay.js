@@ -12,18 +12,6 @@ const lampController = require('../modules/lampController.js')
 var IP;
 var ColorSet;
 
-/*
-    getPrimaryDisplay():
-*/
-
-/*
-setInterval(() => {
-    var hex = robot.getPixelColor(screen.getCursorScreenPoint().x, screen.getCursorScreenPoint().y);
-    lampController.LightStateHue(5, "#"+hex)
-    console.log(hex)
-}, 500);
-*/
-
 document.getElementById('primaryDisplayID').innerHTML = screen.getPrimaryDisplay().id
 document.getElementById('primaryDisplayStats').innerHTML = `${screen.getPrimaryDisplay().size.width} x ${screen.getPrimaryDisplay().size.height}`
 
@@ -60,6 +48,9 @@ axios.get('https://discovery.meethue.com/')
     })
 
 function roomSelector(groupid){
+    // Console Log ScreenPlay (for Debug purposes)
+    console.log("Screenplay activated for GroupID:" + groupid)
+
     // Clear Intervall, just incase User decides to Switch Rooms.
     clearInterval(ColorSet)
 
@@ -71,10 +62,8 @@ function roomSelector(groupid){
     // Set Hue for each Light.
     ColorSet = setInterval(() => {
         lights.forEach(element => {
-            var hex = robot.getPixelColor(x, y);
-            console.log(groupid + " | " + element + " | " + hex)
-            console.log(lights)
-            //lampController.LightStateHue(element, "#"+hex)
+            var hex = "#" + robot.getPixelColor(x, y);
+            lampController.LightStateHueQ(parseInt(element), hex)
         })
-    }, 1500);
+    }, 500);
 }
