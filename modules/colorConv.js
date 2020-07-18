@@ -59,6 +59,7 @@ function rgbToXY(r, g, b) {
     if (sum == 0) {
         return { x: 0, y: 0 };
     }
+    console.log(`[${x / sum}, ${y / sum}]`)
     return `[${x / sum}, ${y / sum}]`
 }
 
@@ -68,4 +69,19 @@ function enhanceColor(normalized) {
     }
 
     return normalized / 12.92;
+}
+
+exports.brightness = (hex) => {
+    hex = hex.substring(1);
+    
+    let r = parseInt(hex.substring(0, 2), 16); 
+    let g = parseInt(hex.substring(2, 4), 16);
+    let b = parseInt(hex.substring(4, 6), 16);
+
+    hsp = Math.sqrt(
+        0.299 * (r * r) +
+        0.587 * (g * g) +
+        0.114 * (b * b)
+    )
+    return Math.round(hsp);
 }

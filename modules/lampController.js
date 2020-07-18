@@ -88,6 +88,6 @@ exports.LightStateHueQ = (lampid, hex) => {
     axios({
         method: 'put',
         url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,
-        data: { "on": true, "xy": JSON.parse(colorConv.hexToRgb(hex)) }
+        data: { "on": true, "xy": JSON.parse(colorConv.hexToRgb(hex)), "bri": colorConv.brightness(hex) }
     })
 }

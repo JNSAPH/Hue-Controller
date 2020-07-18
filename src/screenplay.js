@@ -5,6 +5,7 @@ var robot = require("robotjs");
 
 //Import Custom Modules
 const settings = require(app.getPath('userData') + '/settings.json')
+const colorConv = require('../modules/colorConv.js')
 const lampController = require('../modules/lampController.js')
 
 // Create Variables
