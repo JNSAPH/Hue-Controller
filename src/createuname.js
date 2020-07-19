@@ -26,6 +26,7 @@ axios.get('https://discovery.meethue.com/')
                     } else {
                         const obj = {
                             username: response.data[0].success.username,
+                            screenplaydelay: 500,
                             IP: IP
                         }
                         fs.appendFile(app.getPath('userData') + '/settings.json', JSON.stringify(obj), function (err) {

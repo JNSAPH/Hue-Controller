@@ -120,6 +120,21 @@ input[type="color"]::-webkit-color-swatch {
 	border: 0;
 }
 
+input[type="number"] {
+    background-color: rgba(0,0,0,0);
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: white
+}
+
+input[type="number"]:focus {
+    background-color: rgba(0,0,0,0);
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: white
+}
+
+
 /* The slider itself */
 input[type="range"]{
     overflow: hidden;

@@ -58,5 +58,5 @@ function roomSelector(groupid){
             var hex = "#" + robot.getPixelColor(x, y);
             lampController.LightStateHueQ(parseInt(element), hex)
         })
-    }, 500);
+    }, settings.screenplaydelay);
 }

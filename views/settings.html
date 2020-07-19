@@ -17,7 +17,30 @@
         <p class="navbar-brand mb-0">Bridge IP: <a id="uiIP"></a></p>
     </nav>
 
-    <div class="container">
+    <div class="container" style="padding-bottom: 70px">
+        <p style="font-weight: bold; font-size: 24px; text-align: center;">Settings</p>
+        <hr>
+        <div class="bridgeinformation">
+            <div class="row">
+                <div class="col-md-auto">
+                    <p class="h">ScreenPlay Refresh Delay:</p>
+                </div>
+                <div class="col-md-auto">
+                    <div class="form-group">
+                        <input type="number" required min="1" class="form-control" id="screenplaydelay" placeholder="Default (500)" aria-describedby="ScreenPlay-Refresh" onchange="changeRefresh(this.value)">
+                        <small>Depending on your Bridge, Internet Speeds and some other Factors, you might have a bad experience by changing this lower than 400.</small>
+                        <small id="screenplaydelayHelp" class="form-text" color="green" style="color: green"></small>
+                      </div>
+                </div>
+            </div>
+             
+                
+
+            </p>
+        </div>
+
+        <br>
+
         <p style="font-weight: bold; font-size: 24px; text-align: center;">Information</p>
         <hr>
         <div class="bridgeinformation">
