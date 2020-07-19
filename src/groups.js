@@ -14,6 +14,10 @@ var lightlist;
 
 document.getElementById('uiIP').innerHTML = IP
 
+axios(`http://${IP}/api/${settings.username}/lights`)
+         .then(function (response) {
+             lightlist = response.data
+
 axios.get(`http://${IP}/api/${settings.username}/groups`)
     .then((response) => {
         groups = response.data
@@ -56,6 +60,7 @@ axios.get(`http://${IP}/api/${settings.username}/groups`)
             `
         })
     })
+})
 
 // Generate Lightcards
 function LampList(roomid) {
