@@ -1,5 +1,6 @@
 // Electron Modules
 const { app, BrowserWindow } = require('electron')
+const axios = require('axios');
 var robot = require("robotjs");
 
 // other Modules
@@ -43,4 +44,3 @@ if (fs.existsSync(app.getPath('userData') + '/settings.json')) {
 } else {
   app.whenReady().then(errorWindow)
 }
-

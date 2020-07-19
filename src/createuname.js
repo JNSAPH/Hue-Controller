@@ -25,7 +25,8 @@ axios.get('https://discovery.meethue.com/')
 
                     } else {
                         const obj = {
-                            username: response.data[0].success.username
+                            username: response.data[0].success.username,
+                            IP: IP
                         }
                         fs.appendFile(app.getPath('userData') + '/settings.json', JSON.stringify(obj), function (err) {
                             if (err) throw err;
@@ -35,8 +36,6 @@ axios.get('https://discovery.meethue.com/')
                         });
 
                     }
-
-
                 })
 
             }, 5000);

@@ -59,7 +59,6 @@ function rgbToXY(r, g, b) {
     if (sum == 0) {
         return { x: 0, y: 0 };
     }
-    console.log(`[${x / sum}, ${y / sum}]`)
     return `[${x / sum}, ${y / sum}]`
 }
 
