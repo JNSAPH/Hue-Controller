@@ -77,7 +77,7 @@ exports.brightness = (hex) => {
     let g = parseInt(hex.substring(2, 4), 16);
     let b = parseInt(hex.substring(4, 6), 16);
 
-    hsp = Math.sqrt(
+    let hsp = Math.sqrt(
         0.299 * (r * r) +
         0.587 * (g * g) +
         0.114 * (b * b)

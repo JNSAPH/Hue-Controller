@@ -15,8 +15,8 @@ var lightlist;
 document.getElementById('uiIP').innerHTML = IP
 
 axios(`http://${IP}/api/${settings.username}/lights`)
-         .then(function (response) {
-             lightlist = response.data
+         .then(function (responseLights) {
+             lightlist = responseLights.data
 
 axios.get(`http://${IP}/api/${settings.username}/groups`)
     .then((response) => {
