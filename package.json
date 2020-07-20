@@ -1,6 +1,6 @@
 {
   "name": "huecontroller",
-  "version": "0.9.8",
+  "version": "1.0.0",
   "description": "Electron App to Controll Zigbee Lights using your Philips Hue Bridge",
   "main": "app.js",
   "scripts": {
