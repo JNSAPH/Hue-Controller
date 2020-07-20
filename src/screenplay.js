@@ -40,9 +40,9 @@ axios.get(`http://${IP}/api/${settings.username}/groups`)
         })
     })
 
-function roomSelector(groupid){
+function roomSelector(groupid) {
     // Console Log ScreenPlay (for Debug purposes)
-    console.log("Screenplay activated for GroupID:" + groupid)
+    console.log("Screenplay activated for GroupID: " + groupid)
 
     // Clear Intervall, just incase User decides to Switch Rooms.
     clearInterval(ColorSet)
@@ -51,29 +51,31 @@ function roomSelector(groupid){
     let lights = groups[groupid].lights
     let x = screen.getPrimaryDisplay().size.width / 2
     let y = screen.getPrimaryDisplay().size.height / 2
-    
+
     // Set Hue for each Light.
     ColorSet = setInterval(() => {
-        lights.forEach(element => {
-            var hex = "#" + robot.getPixelColor(x, y);
+        var hex = "#" + robot.getPixelColor(x, y);
+        lights.forEach(element => {
             lampController.LightStateHueQ(parseInt(element), hex)
         })
     }, settings.screenplaydelay);
 }
 
-function pixelSelector(groupid){
+function selectPixel(groupid) {
     clearInterval(ColorSet)
 
     // Get Variables to Calculate where the Pixel Data should come from.
     let lights = groups[groupid].lights
     let x = screen.getCursorScreenPoint().x
     let y = screen.getCursorScreenPoint().y
-    
+
     // Set Hue for each Light.
     ColorSet = setInterval(() => {
-        lights.forEach(element => {
-            var hex = "#" + robot.getPixelColor(x, y);
+        var hex = "#" + robot.getPixelColor(x, y);
+        lights.forEach(element => {
             lampController.LightStateHueQ(parseInt(element), hex)
         })
     }, settings.screenplaydelay);
 }
+
+console.log('%c Currently you can only change your Caputre Point using the Console.\n Do this by typing in selectPixel(%int) and as %int the Group ID you want affected.', 'background: #222; color: #bada55')

@@ -1,14 +1,7 @@
 // Decleare Variables
-var IP;
+const settings = require(app.getPath('userData') + '/settings.json')
+var IP = settings.IP;
 var LightList;
-
-axios.get('https://discovery.meethue.com/')
-.then((response) => {
-    IP = response.data[0].internalipaddress
-    document.getElementById('uiIP').innerHTML = IP
-})
-
-exports.IP = IP
 
 exports.Refresh = () => {
     axios(`http://${IP}/api/${settings.username}/lights`)
@@ -17,8 +10,11 @@ exports.Refresh = () => {
         })
 }
 
+this.Refresh()
+
 // Lamp switches
 exports.LightSwitch = (lampid, state) => {
+    console.log(LightList)
     axios({
         method: 'put',
         url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,
