@@ -60,3 +60,20 @@ function roomSelector(groupid){
         })
     }, settings.screenplaydelay);
 }
+
+function pixelSelector(groupid){
+    clearInterval(ColorSet)
+
+    // Get Variables to Calculate where the Pixel Data should come from.
+    let lights = groups[groupid].lights
+    let x = screen.getCursorScreenPoint().x
+    let y = screen.getCursorScreenPoint().y
+    
+    // Set Hue for each Light.
+    ColorSet = setInterval(() => {
+        lights.forEach(element => {
+            var hex = "#" + robot.getPixelColor(x, y);
+            lampController.LightStateHueQ(parseInt(element), hex)
+        })
+    }, settings.screenplaydelay);
+}
