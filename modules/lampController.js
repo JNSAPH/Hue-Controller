@@ -14,7 +14,6 @@ this.Refresh()
 
 // Lamp switches
 exports.LightSwitch = (lampid, state) => {
-    console.log(LightList)
     axios({
         method: 'put',
         url: `http://${IP}/api/${settings.username}/lights/${lampid}/state`,

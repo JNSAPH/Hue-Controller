@@ -1,7 +1,7 @@
 // Electron Modules
 const { app, BrowserWindow } = require('electron')
 const axios = require('axios');
-var robot = require("robotjs");
+const robot = require("robotjs");
 
 // other Modules
 const fs = require('fs')
