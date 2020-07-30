@@ -62,6 +62,17 @@ p{
     border: none;
 }
 
+.clickablecard{
+    transition: transform .2s;
+    cursor: pointer;
+}
+
+.clickablecard:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(0,0,0,.5);
+}
+
+
 .h{
     font-weight: bold;
     color: #FF5454

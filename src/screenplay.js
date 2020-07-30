@@ -26,13 +26,10 @@ axios.get(`http://${IP}/api/${settings.username}/groups`)
             document.getElementById('GroupList').innerHTML +=
                 `
                 <div class="col">
-                    <div class="card lcard">
-                    <div class="card-body">
+                    <div class="card lcard clickablecard">
+                    <div class="card-body" onclick="roomSelector(${element})">
                         <p style="font-size: 20px; font-weight: bold; text-align: center" class="md-0">${groups[element].name}</p>
-                        <p style="text-align: center" clasS="md-0">ID: ${element} | ${groups[element].type == "Entertainment" ? "Entertainment Area" : "Room"}</p>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-dark" onclick="roomSelector(${element})">Select</button>
-                        </div>
+                        <p style="text-align: center" clasS="md-0">ID: ${element} ${groups[element].type == "Entertainment" ? "Entertainment Area" : "Room"}</p>
                     </div>
                 </div>
             </div>          
