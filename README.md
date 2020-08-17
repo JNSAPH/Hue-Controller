@@ -28,6 +28,14 @@ Installation is easy! Just follow these Steps:
 - [X] Add Room Support
 - [X] Transitions from request to Axios
 - [X] Add Color Support
+- [ ] Animations
+
+## Tested Lamps
+- [X] OSRAM Smart+ LED (Color) | (Warm / Cool not tested)
+- [X] OSRAM Smart+ LED Strip
+- [X] IKEA TRÅDFRI 
+- [X] Philips Hue White & Color Ambiance 
+
 
 ## Why should i use this?
 Signify already offers a way to control lamps via the Philips Hue Bridge. The problem with this solution, however, is that an entertainment area has to be created in the app. However, the entertainment area can only be equipped with original Philips Hue lamps, LED strips, etc.. This trys to be an alternative to get the same functionality for non-Phillips Branded Lamps.
