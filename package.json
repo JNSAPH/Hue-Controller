@@ -14,7 +14,7 @@
   "author": "JNSAPH",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "electron": "^11.5.0",
+    "electron": "^13.6.6",
     "electron-packager": "^15.0.0",
     "electron-rebuild": "^1.11.0"
   },
